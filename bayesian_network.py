@@ -43,8 +43,8 @@ def network_from_dictionary(dict):
     prob = np.zeros((goals_card, teams_card*shots_card))
     for k in range(goals_card):
         for i in range(teams_card*shots_card):
-            id = i//teams_card
-            n = i%teams_card
+            id = i//shots_card
+            n = i%shots_card
             p = dict[team_list[id]][1]
             # rozkład Bernoulliego
             prob[k, i] = np.math.comb(n, k)*p**k*(1-p)**(n-k)
